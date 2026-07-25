@@ -110,8 +110,10 @@ fn main() {
         East,
         West
     }
-    let direction: Direction=Direction::North;
-    println!("The direction is {:?}.", direction);
+    let direction_N: Direction=Direction::North;
+    let direction_S: Direction=Direction::South;
+    println!("The direction is {:?}.", direction_N);
+    println!("The direction is {:?}.", direction_S);
     // Need to understand enums
 
 }
