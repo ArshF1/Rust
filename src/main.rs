@@ -112,6 +112,7 @@ fn main() {
     }
     let direction: Direction=Direction::North;
     println!("The direction is {:?}.", direction);
+    // Need to understand enums
 
 }
 
