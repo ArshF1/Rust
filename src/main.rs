@@ -1,3 +1,5 @@
+use std::fs;
+
 fn main() {
     let mut num:u16=4;
     print!("The number is {}\n", num);
@@ -110,11 +112,41 @@ fn main() {
         East,
         West
     }
-    let direction_N: Direction=Direction::North;
-    let direction_S: Direction=Direction::South;
-    println!("The direction is {:?}.", direction_N);
-    println!("The direction is {:?}.", direction_S);
+    let direction_n: Direction=Direction::North;
+    let direction_s: Direction=Direction::South;
+    println!("The direction is {:?}.", direction_n);
+    println!("The direction is {:?}.", direction_s);
     // Need to understand enums
+
+    // Pattern matching (a switch case statement or a match case statement in python, it's the same thing)
+    enum Shape {
+        Circle(f64),
+        Square(f64),
+        Rectangle(f64, f64)
+    }
+
+    fn calculate_area(shape:Shape)-> f64 {
+        match shape {
+            Shape::Circle(radius)=> 3.14*radius*radius,
+            Shape::Square(side_length)=> side_length*side_length,
+            Shape::Rectangle(width, height)=> width*height,
+        }
+    }
+
+    // Error handling (The way an error is handled in rust. It is handled in the same format as the enum below)
+    // enum Result<A, B> {
+    //     Ok(A),
+    //     Err(B)
+    // }
+
+    let res=fs::read_to_string("example.txt");
+
+    match res {
+        Ok(content)=> println!("The contents of the file are {}", content),
+        Err(err)=> println!("Error: {}", err),
+    }
+
+
 
 }
 
