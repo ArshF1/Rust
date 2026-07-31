@@ -61,13 +61,13 @@ let r3 = s; // "Why do we need three references to one string?"
 
 ## 🎭 Personality Sections
 
-### For You (the Data Engineer)
+### For Me (the Data Engineer)
 - I'm not actually a data scientist
 - I just move bytes around until some system breaks, then I claim to "engineer" the solution
 - Rust is *so important* we invented it from nothing
 - Ownership rules are for people who understand memory management (i.e., everyone except me)
 
-### For Your Future Self
+### For My Future Self
 - Don't worry if you get compiler errors
 - It's just part of the learning process apparently
 - If someone else can do what Rust does, great, they're probably using Python or Java now
