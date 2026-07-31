@@ -1,3 +1,5 @@
+use std::fs;
+
 fn for_loop()-> () {
     for i in 0..3 {
         println!("Loop value: {}", i);
@@ -45,13 +47,46 @@ fn get_first_word(sentence:String)-> String {
     return word;
 }
 
+fn take_ownership()-> () {
+    let s1=String::from("Hi");
+    let s2=s1;
+
+    let response:Result<String, String>=Ok(s2);
+
+    match response {
+        Ok(content)=> println!("Response ok {}", content),
+        Err(err)=> println!("Error: {}", err),
+    }
+}
+
+fn error_handling()-> () {
+    let file_buffer=fs::read_to_string("test.txt");
+
+    match file_buffer {
+        Ok(content)=> println!("The contents of file are {}", content),
+        Err(err)=> println!("No file found. Error: {}", err),
+    }
+}
+
+fn update_str_reference(str: &mut String)->String {
+    // This is regarding a mutable reference
+    str.push_str(" This is pushed right after sentence");
+    let response=str.to_string();
+    println!("The updated sentence is '{}'", response);
+    return response
+}
+
 fn main(){
     // Basic variables
-    let str:String=String::from("Hi");
-    let num:u8=255;
+    let _str:String=String::from("Hi");
+    let _num:u8=255;
 
     get_char_at_index(4);
+    take_ownership();
+    error_handling();
 
+    let mut sentence=String::from("Hi, this is a sentence");
+    update_str_reference(&mut sentence);
 
 
 }
